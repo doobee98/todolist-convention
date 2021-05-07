@@ -8,6 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - [styled-components](https://kyounghwan01.github.io/blog/TS/React/styled-components-preset/)
 
+- [github-pages](https://velog.io/@junghyeonsu/React-Github-Pages%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9D%B4%EB%A0%A5%EC%84%9C-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-pm1t1a9a)
+
 ## Available Scripts
 
 In the project directory, you can run:
