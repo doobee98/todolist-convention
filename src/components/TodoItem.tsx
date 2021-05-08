@@ -5,10 +5,46 @@ import { ImBin } from 'react-icons/im';
 import { FaRegCheckSquare, FaRegSquare } from 'react-icons/fa';
 
 const TodoItemWrapper = styled.div`
-  border: 1px solid orange;
+  padding: 25px 20px;
+  border-bottom: 1px solid black;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:nth-child(1) {
+    border-top: 1px solid black;
+  }
 `;
 
-const IconWrapper = styled.span`
+const PinIcon = styled.span`
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+const DoneIcon = styled.span`
+  margin-left: 7px;
+
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+`;
+
+const DeleteIcon = styled.span`
+  margin-left: 10px;
+
+  display: flex;
+  align-items: center;
+
   svg {
     width: 20px;
     height: 20px;
@@ -20,7 +56,11 @@ interface ContentProps {
 }
 
 const Content = styled.span<ContentProps>`
-  font-size: 15px;
+  font-size: 16px;
+  margin-left: 15px;
+  vertical-align: middle;
+
+  flex: 1;
 
   ${(props) =>
     props.done &&
@@ -53,16 +93,16 @@ const TodoItem: React.FC<TodoItemProps> = (props) => {
 
   return (
     <TodoItemWrapper>
-      <IconWrapper onClick={togglePinned}>
+      <PinIcon onClick={togglePinned}>
         {pinned ? <AiFillPushpin /> : <AiOutlinePushpin />}
-      </IconWrapper>
-      <IconWrapper onClick={toggleDone}>
+      </PinIcon>
+      <DoneIcon onClick={toggleDone}>
         {done ? <FaRegCheckSquare /> : <FaRegSquare />}
-      </IconWrapper>
+      </DoneIcon>
       <Content done={done}>{title}</Content>
-      <IconWrapper onClick={deleteThis}>
+      <DeleteIcon onClick={deleteThis}>
         <ImBin />
-      </IconWrapper>
+      </DeleteIcon>
     </TodoItemWrapper>
   );
 };

@@ -5,12 +5,7 @@ import TodoListModel from 'models/TodoListModel';
 import TodoItem from './TodoItem';
 
 const TodoListWrapper = styled.div`
-  border: 2px solid green;
-`;
-
-const Title = styled.div`
-  font-weight: bold;
-  font-size: 20px;
+  margin: 10px 0;
 `;
 
 interface TodoListProps {
@@ -36,7 +31,6 @@ const TodoList: React.FC<TodoListProps> = (props) => {
 
   return (
     <TodoListWrapper>
-      <Title>TodoList</Title>
       {sortedItems.map((todo) => (
         <TodoItem
           key={todo.id}

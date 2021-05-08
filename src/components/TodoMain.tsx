@@ -8,7 +8,7 @@ import TodoList from './TodoList';
 
 const TodoMainBackground = styled.div`
   width: 600px;
-  min-height: 400px;
+  min-height: 700px;
   padding: 30px;
   border-radius: 30px;
   background: #ffffff;
