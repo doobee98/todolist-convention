@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import TodoItemModel from 'models/TodoItemModel';
+import TodoItemModel, { ChangeTodoItemProps } from 'models/TodoItemModel';
 import TodoListModel from 'models/TodoListModel';
 import TodoItem from './TodoItem';
 
@@ -15,10 +15,12 @@ const Title = styled.div`
 
 interface TodoListProps {
   todos: TodoListModel;
+  changeTodo: (id: number, newTodo: ChangeTodoItemProps) => void;
+  deleteTodo: (id: number) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = (props) => {
-  const { todos } = props;
+  const { todos, changeTodo, deleteTodo } = props;
   const [sortedItems, setSortedItems] = useState<TodoItemModel[]>([]);
 
   useEffect(() => {
@@ -29,13 +31,18 @@ const TodoList: React.FC<TodoListProps> = (props) => {
         return 0;
       }),
     );
-  }, []);
+  }, [todos]);
 
   return (
     <TodoListWrapper>
       <Title>TodoList</Title>
       {sortedItems.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          changeTodo={changeTodo}
+          deleteTodo={deleteTodo}
+        />
       ))}
     </TodoListWrapper>
   );

@@ -3,6 +3,7 @@ import TodoApi from 'apis/TodoApi';
 import TodoHeader from 'components/TodoHeader';
 import TodoList from 'components/TodoList';
 import TodoListModel from 'models/TodoListModel';
+import { ChangeTodoItemProps } from 'models/TodoItemModel';
 
 const TodoPage: React.FC = () => {
   const todoApi = new TodoApi();
@@ -14,6 +15,27 @@ const TodoPage: React.FC = () => {
     });
   }, []);
 
+  const deleteTodo = (id: number) => {
+    if (!todoList) return;
+
+    setTodoList({
+      items: todoList.items.filter((todo) => todo.id !== id),
+      counter: todoList.counter,
+    });
+  };
+
+  const changeTodo = (id: number, newTodo: ChangeTodoItemProps) => {
+    if (!todoList) return;
+
+    setTodoList({
+      items: todoList.items.map((todo) => ({
+        ...todo,
+        ...(todo.id === id && newTodo),
+      })),
+      counter: todoList.counter,
+    });
+  };
+
   if (!todoList) {
     return null;
   }
@@ -21,7 +43,11 @@ const TodoPage: React.FC = () => {
   return (
     <>
       <TodoHeader />
-      <TodoList todos={todoList} />
+      <TodoList
+        todos={todoList}
+        changeTodo={changeTodo}
+        deleteTodo={deleteTodo}
+      />
     </>
   );
 };
