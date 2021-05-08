@@ -26,9 +26,10 @@ const TodoList: React.FC<TodoListProps> = (props) => {
   useEffect(() => {
     setSortedItems(
       todos.items.sort((a, b) => {
+        // first: pinned, second: bigger id
         if (a.pinned && !b.pinned) return -1;
         if (!a.pinned && b.pinned) return 1;
-        return 0;
+        return b.id - a.id;
       }),
     );
   }, [todos]);
