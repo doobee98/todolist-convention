@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import TodoItemModel from 'models/TodoItemModel';
 
 const TodoItemWrapper = styled.div`
   border: 1px solid orange;
@@ -9,15 +10,15 @@ const Content = styled.div`
 `;
 
 interface TodoItemProps {
-  data: number;
+  todo: TodoItemModel;
 }
 
 const TodoItem: React.FC<TodoItemProps> = (props) => {
-  const { data: item } = props;
+  const { todo } = props;
 
   return (
     <TodoItemWrapper>
-      <Content>{item}</Content>
+      <Content>{todo.title}</Content>
     </TodoItemWrapper>
   );
 };

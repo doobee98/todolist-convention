@@ -1,3 +1,4 @@
+import TodoListModel from 'models/TodoListModel';
 import styled from 'styled-components';
 import TodoItem from './TodoItem';
 
@@ -11,17 +12,17 @@ const Title = styled.div`
 `;
 
 interface TodoListProps {
-  data: number[];
+  todos: TodoListModel;
 }
 
 const TodoList: React.FC<TodoListProps> = (props) => {
-  const { data: todolist } = props;
+  const { todos } = props;
 
   return (
     <TodoListWrapper>
       <Title>TodoList</Title>
-      {todolist.map((todoitem) => (
-        <TodoItem key={todoitem} data={todoitem} />
+      {todos.items.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </TodoListWrapper>
   );
