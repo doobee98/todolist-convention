@@ -15,6 +15,23 @@ const TodoPage: React.FC = () => {
     });
   }, []);
 
+  const addNewTodo = (title: string) => {
+    if (!todoList) return;
+    if (!title) return;
+
+    const newTodo = {
+      title,
+      id: todoList.counter,
+      done: false,
+      pinned: false,
+    };
+
+    setTodoList({
+      items: [...todoList.items, newTodo],
+      counter: todoList.counter + 1,
+    });
+  };
+
   const deleteTodo = (id: number) => {
     if (!todoList) return;
 
@@ -42,7 +59,7 @@ const TodoPage: React.FC = () => {
 
   return (
     <>
-      <TodoHeader />
+      <TodoHeader addNewTodo={addNewTodo} />
       <TodoList
         todos={todoList}
         changeTodo={changeTodo}
