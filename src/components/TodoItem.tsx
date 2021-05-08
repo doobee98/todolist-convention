@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import TodoItemModel, { ChangeTodoItemProps } from 'models/TodoItemModel';
 import { AiFillPushpin, AiOutlinePushpin } from 'react-icons/ai';
 import { ImBin } from 'react-icons/im';
@@ -15,8 +15,18 @@ const IconWrapper = styled.span`
   }
 `;
 
-const Content = styled.span`
+interface ContentProps {
+  done?: boolean;
+}
+
+const Content = styled.span<ContentProps>`
   font-size: 15px;
+
+  ${(props) =>
+    props.done &&
+    css`
+      text-decoration: line-through;
+    `}
 `;
 
 interface TodoItemProps {
@@ -49,7 +59,7 @@ const TodoItem: React.FC<TodoItemProps> = (props) => {
       <IconWrapper onClick={toggleDone}>
         {done ? <FaRegCheckSquare /> : <FaRegSquare />}
       </IconWrapper>
-      <Content>{title}</Content>
+      <Content done={done}>{title}</Content>
       <IconWrapper onClick={deleteThis}>
         <ImBin />
       </IconWrapper>
