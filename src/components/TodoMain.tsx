@@ -1,9 +1,21 @@
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import TodoApi from 'apis/TodoApi';
 import { ChangeTodoItemProps } from 'models/TodoItemModel';
 import TodoListModel from 'models/TodoListModel';
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
+
+const TodoMainBackground = styled.div`
+  width: 600px;
+  min-height: 400px;
+  padding: 30px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+`;
+
+const Loading = styled.div``;
 
 const TodoMain: React.FC = () => {
   const todoApi = new TodoApi();
@@ -53,19 +65,21 @@ const TodoMain: React.FC = () => {
     });
   };
 
-  if (!todoList) {
-    return null;
-  }
-
   return (
-    <>
-      <TodoHeader addNewTodo={addNewTodo} />
-      <TodoList
-        todos={todoList}
-        changeTodo={changeTodo}
-        deleteTodo={deleteTodo}
-      />
-    </>
+    <TodoMainBackground>
+      {!todoList ? (
+        <Loading />
+      ) : (
+        <>
+          <TodoHeader addNewTodo={addNewTodo} />
+          <TodoList
+            todos={todoList}
+            changeTodo={changeTodo}
+            deleteTodo={deleteTodo}
+          />
+        </>
+      )}
+    </TodoMainBackground>
   );
 };
 
