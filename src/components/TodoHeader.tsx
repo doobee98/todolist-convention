@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import TodoNewInput from './TodoNewInput';
 
 const TodoHeaderWrapper = styled.div`
-  border: 2px solid red;
+  width: 70%;
+  margin: 15px auto 40px;
 `;
 
 interface TodoHeaderProps {

@@ -4,10 +4,19 @@ import { normalize } from 'styled-normalize';
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
-  html,
+  html {
+    height: 100%;
+  }
+
   body {
-    overflow: hidden;
+    width: 100%;
+    min-height: 100%;
     margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    height: 100%;
   }
 
   * {
