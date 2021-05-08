@@ -14,19 +14,19 @@ class TodoApi {
           id: 0,
           title: '투두리스트 마무리하기',
           done: false,
-          pinned: true,
+          pinned: false,
         },
         {
           id: 1,
           title: '알프스 과제',
           done: false,
-          pinned: false,
+          pinned: true,
         },
         {
           id: 2,
           title: '콜로키움 과제 제출',
           done: true,
-          pinned: false,
+          pinned: true,
         },
         {
           id: 3,
