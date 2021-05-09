@@ -5,6 +5,11 @@ const sleep = (ms: number) => {
 };
 
 class TodoApi {
+  /*
+    실제 api에서 fetch하지 않기 때문에,
+    3초의 딜레이를 둔 후에 TodoList 데이터를 return하여
+    비동기 효과를 낼 수 있도록 디자인
+  */
   fetchTodoList = async (onSuccess: (data: TodoListModel) => void) => {
     await sleep(3000);
 
