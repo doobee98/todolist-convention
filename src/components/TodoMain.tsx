@@ -15,7 +15,12 @@ const TodoMainBackground = styled.div`
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 `;
 
-const Loading = styled.div``;
+const Loading = styled.div`
+  margin-top: 45%;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+`;
 
 const TodoMain: React.FC = () => {
   const todoApi = new TodoApi();
@@ -68,7 +73,7 @@ const TodoMain: React.FC = () => {
   return (
     <TodoMainBackground>
       {!todoList ? (
-        <Loading />
+        <Loading>로딩 중 입니다...</Loading>
       ) : (
         <>
           <TodoHeader addNewTodo={addNewTodo} />
