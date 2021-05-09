@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import TodoItemModel, { ChangeTodoItemProps } from 'models/TodoItemModel';
+import TodoItemModel, { ChangeTodoItemParams } from 'models/TodoItemModel';
 import TodoListModel from 'models/TodoListModel';
 import TodoItem from './TodoItem';
 
@@ -19,7 +19,7 @@ const EmptyTodoList = styled.div`
 
 interface TodoListProps {
   todos: TodoListModel;
-  changeTodo: (id: number, newTodo: ChangeTodoItemProps) => void;
+  changeTodo: (id: number, newTodo: ChangeTodoItemParams) => void;
   deleteTodo: (id: number) => void;
 }
 

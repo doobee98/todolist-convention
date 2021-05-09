@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TodoApi from 'apis/TodoApi';
-import { ChangeTodoItemProps } from 'models/TodoItemModel';
+import { ChangeTodoItemParams } from 'models/TodoItemModel';
 import TodoListModel from 'models/TodoListModel';
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
@@ -58,7 +58,7 @@ const TodoMain: React.FC = () => {
     });
   };
 
-  const changeTodo = (id: number, newTodo: ChangeTodoItemProps) => {
+  const changeTodo = (id: number, newTodo: ChangeTodoItemParams) => {
     if (!todoList) return;
 
     setTodoList({
