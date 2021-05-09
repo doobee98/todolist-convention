@@ -5,7 +5,7 @@ export default interface TodoItemModel {
   pinned: boolean;
 }
 
-export interface ChangeTodoItemProps {
+export interface ChangeTodoItemParams {
   title?: string;
   done?: boolean;
   pinned?: boolean;

@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import TodoItemModel, { ChangeTodoItemProps } from 'models/TodoItemModel';
 import { AiFillPushpin, AiOutlinePushpin } from 'react-icons/ai';
-import { ImBin } from 'react-icons/im';
 import { FaRegCheckSquare, FaRegSquare } from 'react-icons/fa';
+import { ImBin } from 'react-icons/im';
+import styled, { css } from 'styled-components';
+import TodoItemModel, { ChangeTodoItemParams } from 'models/TodoItemModel';
 
 const TodoItemWrapper = styled.div`
   padding: 25px 20px;
@@ -71,7 +71,7 @@ const Content = styled.span<ContentProps>`
 
 interface TodoItemProps {
   todo: TodoItemModel;
-  changeTodo: (id: number, newTodo: ChangeTodoItemProps) => void;
+  changeTodo: (id: number, newTodo: ChangeTodoItemParams) => void;
   deleteTodo: (id: number) => void;
 }
 

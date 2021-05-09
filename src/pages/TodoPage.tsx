@@ -1,15 +1,13 @@
-import PageTemplate from 'components/PageTemplate';
 import styled from 'styled-components';
+import PageTemplate from 'components/PageTemplate';
 import TodoMain from 'components/TodoMain';
 
 const TodoWrapper = styled.div`
   min-height: inherit;
-  padding: 10px;
 
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
   justify-content: center;
+  align-items: center;
 `;
 
 const TodoPage: React.FC = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TodoApi from 'apis/TodoApi';
-import { ChangeTodoItemProps } from 'models/TodoItemModel';
+import { ChangeTodoItemParams } from 'models/TodoItemModel';
 import TodoListModel from 'models/TodoListModel';
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
@@ -15,7 +15,12 @@ const TodoMainBackground = styled.div`
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 `;
 
-const Loading = styled.div``;
+const Loading = styled.div`
+  margin-top: 45%;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+`;
 
 const TodoMain: React.FC = () => {
   const todoApi = new TodoApi();
@@ -53,7 +58,7 @@ const TodoMain: React.FC = () => {
     });
   };
 
-  const changeTodo = (id: number, newTodo: ChangeTodoItemProps) => {
+  const changeTodo = (id: number, newTodo: ChangeTodoItemParams) => {
     if (!todoList) return;
 
     setTodoList({
@@ -68,7 +73,7 @@ const TodoMain: React.FC = () => {
   return (
     <TodoMainBackground>
       {!todoList ? (
-        <Loading />
+        <Loading>로딩 중 입니다...</Loading>
       ) : (
         <>
           <TodoHeader addNewTodo={addNewTodo} />

@@ -1,6 +1,6 @@
-import useInput from 'hooks/useInput';
 import { FaPlus } from 'react-icons/fa';
 import styled from 'styled-components';
+import useInput from 'hooks/useInput';
 
 const TodoNewInputWrapper = styled.div`
   display: flex;
