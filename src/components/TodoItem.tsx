@@ -1,8 +1,8 @@
+import { AiFillPushpin, AiOutlinePushpin } from 'react-icons/ai';
+import { FaRegCheckSquare, FaRegSquare } from 'react-icons/fa';
+import { ImBin } from 'react-icons/im';
 import styled, { css } from 'styled-components';
 import TodoItemModel, { ChangeTodoItemParams } from 'models/TodoItemModel';
-import { AiFillPushpin, AiOutlinePushpin } from 'react-icons/ai';
-import { ImBin } from 'react-icons/im';
-import { FaRegCheckSquare, FaRegSquare } from 'react-icons/fa';
 
 const TodoItemWrapper = styled.div`
   padding: 25px 20px;

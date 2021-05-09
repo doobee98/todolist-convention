@@ -1,5 +1,5 @@
-import PageTemplate from 'components/PageTemplate';
 import styled from 'styled-components';
+import PageTemplate from 'components/PageTemplate';
 import TodoMain from 'components/TodoMain';
 
 const TodoWrapper = styled.div`
