@@ -8,6 +8,15 @@ const TodoListWrapper = styled.div`
   margin: 10px 0;
 `;
 
+const EmptyTodoList = styled.div`
+  padding-top: 100px;
+  border-top: 1px solid black;
+  font-size: 25px;
+  font-style: italic;
+  color: gray;
+  text-align: center;
+`;
+
 interface TodoListProps {
   todos: TodoListModel;
   changeTodo: (id: number, newTodo: ChangeTodoItemProps) => void;
@@ -31,14 +40,18 @@ const TodoList: React.FC<TodoListProps> = (props) => {
 
   return (
     <TodoListWrapper>
-      {sortedItems.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          changeTodo={changeTodo}
-          deleteTodo={deleteTodo}
-        />
-      ))}
+      {sortedItems.length === 0 ? (
+        <EmptyTodoList>더이상 할 일이 없습니다...</EmptyTodoList>
+      ) : (
+        sortedItems.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            changeTodo={changeTodo}
+            deleteTodo={deleteTodo}
+          />
+        ))
+      )}
     </TodoListWrapper>
   );
 };
